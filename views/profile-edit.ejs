@@ -1,0 +1,223 @@
+<%- include('partials/header') %>
+    <!-- Main Container -->
+    <main id="main-container">
+
+        <!-- Hero -->
+        <div class="bg-image" style="background-image: url('assets/media/photos/photo10@2x.jpg');">
+            <div class="bg-primary-dark-op">
+                <div class="content content-full text-center">
+                    <h1 class="h2 text-white mb-0">Profilo Personale</h1>
+                    <h2 class="h4 fw-normal text-white-75">
+                        <%= users[0].name %>
+                    </h2>
+                    <a class="btn btn-alt-secondary" href="/">
+                        <i class="fa fa-fw fa-arrow-left text-danger"></i> Torna alla home
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- END Hero -->
+
+        <!-- Page Content -->
+        <div class="content content-boxed">
+            <!-- User Profile -->
+            <div class="block block-rounded">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Profilo utente</h3>
+                </div>
+                <div class="block-content">
+                    <form action="/register-update" method="POST" enctype="multipart/form-data">
+                        <div class="row push">
+                            <div class="col-lg-4">
+                                <p class="fs-sm text-muted">
+                                    Le informazioni del tuo account. 
+                                </p>
+                            </div>
+                            <div class="col-lg-8 col-xl-5">
+                                <div class="mb-4">
+                                    <label class="form-label" for="one-profile-edit-username">
+                                        Nome e Cognome
+                                    </label>
+                                    <input type="text" class="form-control" id="one-profile-edit-username"
+                                        name="one-profile-edit-username" placeholder="Nome e Cognome"
+                                        value="<%= users[0].name %>">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="one-profile-edit-username">
+                                        Codice matricola
+                                    </label>
+                                    <input type="text" class="form-control" id="one-profile-edit-username"
+                                        name="one-profile-edit-username" placeholder="Codice matricola"
+                                        value="<%= users[0].matricola %>">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="one-profile-edit-username">
+                                        Email
+                                    </label>
+                                    <input type="text" class="form-control" id="one-profile-edit-username"
+                                        name="one-profile-edit-username" placeholder="Inserisci la tua e-mail.."
+                                        value="<%= users[0].email %>">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="one-profile-edit-username">
+                                        Cellulare
+                                    </label>
+                                    <input type="text" class="form-control" id="one-profile-edit-username"
+                                        name="one-profile-edit-username" placeholder="Inserisci il tuo telefono.."
+                                        value="<%= users[0].cellulare %>">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="one-profile-edit-username">
+                                        Data di nascita
+                                    </label>
+                                    <input type="text" class="form-control" id="one-profile-edit-username"
+                                        name="one-profile-edit-username" placeholder="Data di nascita"
+                                        value="<%= users[0].datadinascita %>">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="one-profile-edit-username">
+                                        Luogo di nascita
+                                    </label>
+                                    <input type="text" class="form-control" id="one-profile-edit-username"
+                                        name="one-profile-edit-username" placeholder="Luogo di nascita"
+                                        value="<%= users[0].luogodinascita %>">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="one-profile-edit-username">
+                                        Codice Fiscale
+                                    </label>
+                                    <input type="text" class="form-control" id="one-profile-edit-username"
+                                        name="one-profile-edit-username" placeholder="Codice Fiscale"
+                                        value="<%= users[0].cf %>">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="one-profile-edit-email">Indirizzo Mail</label>
+                                    <input type="email" class="form-control" id="one-profile-edit-email"
+                                        name="one-profile-edit-email" placeholder="Enter your email.."
+                                        value="<%= users[0].email %>">
+                                </div>
+                                <div class="mb-4">
+                                    <button type="submit" class="btn btn-alt-primary">
+                                        Aggiorna
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- END User Profile -->
+
+            <!-- Change Password -->
+            <div class="block block-rounded">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Cambia password</h3>
+                </div>
+                <div class="block-content">
+                    <form action="/register-update" method="POST" onsubmit="return false;">
+                        <div class="row push">
+                            <div class="col-lg-4">
+                                <p class="fs-sm text-muted">
+                                    Cambia la tua password spesso per tenere l'account al sicuro
+                                </p>
+                            </div>
+                            <div class="col-lg-8 col-xl-5">
+                                <div class="row mb-4">
+                                    <div class="col-12">
+                                        <label class="form-label" for="one-profile-edit-password-new">Nuova
+                                            Password</label>
+                                        <input type="password" class="form-control" id="one-profile-edit-password-new"
+                                            name="one-profile-edit-password-new">
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-12">
+                                        <label class="form-label" for="one-profile-edit-password-new-confirm">Conferma
+                                            Nuova Password</label>
+                                        <input type="password" class="form-control"
+                                            id="one-profile-edit-password-new-confirm"
+                                            name="one-profile-edit-password-new-confirm">
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <button type="submit" class="btn btn-alt-primary">
+                                        Aggiorna
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- END Change Password -->
+
+            <!-- Billing Information -->
+            <div class="block block-rounded">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">La tua azienda</h3>
+                </div>
+                <div class="block-content">
+                    <form action="be_pages_projects_edit.html" method="POST" onsubmit="return false;">
+                        <div class="row push">
+                            <div class="col-lg-4">
+                                <p class="fs-sm text-muted">
+                                    Le informazioni sono visibili solo a te e l'azienda
+                                </p>
+                            </div>
+                            <div class="col-lg-8 col-xl-5">
+                                <div class="mb-4">
+                                    <label class="form-label" for="one-profile-edit-company-name">Nome compagnia</label>
+                                    <input type="text" class="form-control" id="one-profile-edit-company-name"
+                                        name="one-profile-edit-company-name" placeholder="<%= aziende[0].ragionesociale %>">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="one-profile-edit-street-1">Sede Legale</label>
+                                    <input type="text" class="form-control" id="one-profile-edit-street-1"
+                                        name="one-profile-edit-street-1" placeholder="<%= aziende[0].sedelegale %>">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="one-profile-edit-street-2">Sede Operativa</label>
+                                    <input type="text" class="form-control" id="one-profile-edit-street-2"
+                                        name="one-profile-edit-street-2" placeholder="<%= aziende[0].sedeoperativa %>">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="one-profile-edit-city">Città</label>
+                                    <input type="text" class="form-control" id="one-profile-edit-city"
+                                        name="one-profile-edit-city" placeholder="<%= aziende[0].localitaso %>">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="one-profile-edit-postal">CAP</label>
+                                    <input type="text" class="form-control" id="one-profile-edit-postal"
+                                        name="one-profile-edit-postal" placeholder="<%= aziende[0].capso %>">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="one-profile-edit-vat">P.Iva</label>
+                                    <input type="text" class="form-control" id="one-profile-edit-vat"
+                                        name="one-profile-edit-vat" placeholder="<%= aziende[0].piva %>">
+                                </div>
+                                <div class="mb-4">
+                                    <button type="submit" class="btn btn-alt-primary">
+                                        Aggiorna
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- END Billing Information -->
+            <!-- Billing Information -->
+            <div class="block block-rounded">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">I tuoi corsi fatti</h3>
+                </div>
+                <div class="block-content">
+    
+                </div>
+            </div>
+            <!-- END Billing Information -->
+        </div>
+        <!-- END Page Content -->
+    </main>
+    <!-- END Main Container -->
+    <%- include('partials/footer') %>

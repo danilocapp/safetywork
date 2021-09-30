@@ -1,0 +1,66 @@
+<%- include('partials/header') %>
+    <!-- Main Container -->
+    <main id="main-container">
+        <!-- Page Content -->
+        <div class="content content-boxed">
+            
+            <div style="padding: 100px 20px;">
+                <label class="form-label" for="idazienda">Di quale azienda vuoi gestire gli utenti nei gruppi?</label>
+                <select class="js-select2 form-select" id="idazienda" name="idazienda" style="width: 100%; "onChange="window.location.href=this.value"
+                  data-placeholder="Scegli utente">
+                  <option></option>
+                  <!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                  <% aziende.forEach(function(azienda){ %>
+                    <option value="/utentiingruppi:<%= azienda.id %>">
+                      <%= azienda.ragionesociale %>
+                    </option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-xl-6">
+                    <form action="/utentiingruppi" method="POST">
+                        <div class="mb-4">
+                            <label class="form-label" for="idutente">Seleziona utente da aggiungere<span
+                                    class="text-danger">*</span></label>
+                            <select class="js-select2 form-select" id="idutente" name="idutente" style="width: 100%;"
+                                data-placeholder="Scegli utente">
+                                <option></option>
+                                <!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                                <% users.forEach(function(user){ %>
+                                    <option value="<%= user.id %>">
+                                        <%= user.name %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="idgruppo">Seleziona gruppo dove aggiungerlo<span
+                                    class="text-danger">*</span></label>
+                            <select class="js-select2 form-select" id="idgruppo" name="idgruppo" style="width: 100%;"
+                                data-placeholder="Scegli gruppo">
+                                <option></option>
+                                <!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                                <% groups.forEach(function(group){ %>
+                                    <option value="<%= group.id %>">
+                                        <%= group.titolo %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                        </div>
+            
+                        <div class="col-md-6 col-xl-5">
+                            <button type="submit" class="btn w-200 btn-alt-success">
+                                Aggiungi utente
+                            </button>
+                        </div>
+            
+                    </form>
+                </div>
+                
+            </div>
+            <!-- END Page Content -->
+    </main>
+    <!-- END Main Container -->
+
+    <%- include('partials/footer') %>

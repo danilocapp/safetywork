@@ -1,0 +1,27 @@
+<%- include('partials/header') %>    
+<div style="padding: 100px 20px;">
+  <label class="form-label" for="idazienda">Di quale azienda vuoi vedere i dipendenti?</label>
+  <select class="js-select2 form-select" id="idazienda" name="idazienda" style="width: 100%;"
+      onChange="window.location.href=this.value" data-placeholder="Scegli utente">
+      <option></option>
+      <!-- Required for data-placeholder attribute to work with Select2 plugin -->
+      <% aziende.forEach(function(azienda){ %>
+          <option value="/libretto:<%= azienda.id %>">
+              <%= azienda.ragionesociale %>
+          </option>
+          <% }) %>
+  </select>
+</div>
+<div style="padding: 20px;">
+    <label class="form-label" for="idutente">Seleziona dipendente</label>
+    <select class="form-select" id="example-select" name="idutente" onChange="window.location.href=this.value">
+      <option selected="" value="/libretto">Seleziona dipendente</option>
+      <% for(i=0;i<users.length;i++){ %>
+      <option  value="/libretto/:<%=users[i].id%>"><%=users[i].name%></option>
+      <% } %>
+    </select>
+</div>
+
+
+
+<%- include('partials/footer') %>

@@ -1,0 +1,101 @@
+<%- include('partials/header') %>
+    <!-- Main Container -->
+    <main id="main-container">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">Documenti Caricati</h3>
+        </div>
+
+
+        <% if (typeof messages.success_msg !='undefined' ) { %>
+            <div class="alert alert-success alert-dismissible">
+
+                <h3 class="alert-heading h4 my-2">Success</h3>
+                <p class="mb-0">
+                    <%= messages.success_msg %>
+                </p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+            </div>
+            <% } %>
+                <div class="row block block-rounded">
+
+                    <ul style="list-style-type:none;">
+                        <% if(files.length===0){%>
+                            <li>
+                                <h2 style="padding: 10px; text-align: center;">Non ci sono file caricati</h2>
+                            </li>
+                            <% } else {%>
+                                <%for (var i=0; i < files.length; i++) {%>
+                                    <li>
+                                        <div class="row" style="padding: 20px;">
+                                            <div class="col-6">
+                                                <i class="nav-main-link-icon si si-doc"></i><a
+                                                    href="../uploads/<%=files[i]%>">
+                                                    <%=files[i]%>
+                                                </a>
+                                            </div>
+                                            <div class="col-6">
+                                                <div
+                                                    class="options-container fx-item-zoom-in fx-overlay-slide-down col-3">
+                                                    <img class="img-fluid options-item" src="../uploads/<%=files[i]%>"
+                                                        alt="Documento di testo">
+                                                    <div class="options-overlay bg-black-75">
+                                                        <div class="options-overlay-content">
+                                                            <a class="btn btn-sm btn-alt-secondary"
+                                                                href="../uploads/<%=files[i]%>">
+                                                                <i class="fa fa-pencil-alt text-primary me-1"></i>
+                                                                Modifica/Scarica
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <% }%>
+                                        <% }%>
+                    </ul>
+                </div>
+
+
+                <div class="block block-rounded">
+                    <form method="POST" action="/documenti" enctype="multipart/form-data">
+                        <div class="mb-4">
+                            <input type="text" class="form-control form-control-lg form-control-alt" id="uploadname"
+                                name="uploadname" placeholder="Inserisci titolo del documento/i">
+                        </div>
+                        <div class="block-content block-content-full">
+                            <label>Seleziona i documenti:</label> <br>
+                            <input type="file" name="multiple_images" multiple />
+                        </div>
+
+                        <div class="block-content block-content-full">
+                            <input type="submit" name="btn_upload_multiple_images" value="Carica" />
+                        </div>
+                    </form>
+                </div>
+                <!-- Dropzone (functionality is auto initialized by the plugin itself in js/plugins/dropzone/dropzone.min.js) -->
+                <!-- For more info and examples you can check out http://www.dropzonejs.com/#usage -->
+                <!-- <div class="block block-rounded">
+            <div class="block-header block-header-default">
+                <h3 class="block-title">Dropzone</h3>
+            </div>
+            <div class="block-content block-content-full">
+                <h2 class="content-heading border-bottom mb-4 pb-2">Asynchronous File Uploads</h2>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <p class="fs-sm text-muted">
+                            Drag and drop sections for your file uploads
+                        </p>
+                    </div>
+                    <div class="col-lg-8 col-xl-5">
+                        
+                        <form method="POST" action="/documenti" enctype="multipart/form-data" class="dropzone">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </main>
+    <!-- END Dropzone -->
+    <%- include('partials/footer') %>

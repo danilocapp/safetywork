@@ -1,0 +1,12 @@
+<%- include('partials/header') %>
+<h1>Hai caricato questi file: <hr /></h1>
+<% let result = "Hai caricato questi file: <hr />";%>
+<%let index, len;%>
+
+<!--Loop through all the uploaded images and display them on frontend--> 
+<%for (index = 0, len = files.length; index < len; ++index) {%>
+    <%    result += `"${files[index].path}"`;%>
+    <%}%>
+    <%result += '<hr/><a href="./documenti">Carica altri file</a>';%>
+    <%res.send(result); %>
+<%- include('partials/footer') %>

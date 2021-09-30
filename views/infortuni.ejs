@@ -1,0 +1,176 @@
+<%- include('partials/header') %>
+
+    <main id="main-container">
+
+        <body>
+            
+            
+                
+
+
+            <!-- Customers and Latest Orders -->
+
+            <div class="block-header block-header-default">
+                <a href="/mancatinew"><button  type="button" class="btn rounded-pill btn-outline-primary">Aggiungi nuovo</button></a>
+                <h2  style = "padding-left:40px;" class="block-title">Infortuni</h2>
+            </div>
+            <div class="block-content block-content-full">
+                <div id="DataTables_Table_3_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="text-center bg-body-light py-2 mb-2">
+                                <div class="dt-buttons">
+                                    <button id="btnExport" value="Export"
+                                        class="dt-button buttons-print btn btn-sm btn-alt-primary"
+                                        type="button"><span>PDF</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="dataTables_length" id="DataTables_Table_3_length"><label><select
+                                        name="DataTables_Table_3_length" aria-controls="DataTables_Table_3"
+                                        class="form-select form-select-sm">
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                    </select></label></div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div id="DataTables_Table_3_filter" class="dataTables_filter"><label><input type="search"
+                                        class="form-control form-control-sm" placeholder="Search.."
+                                        aria-controls="DataTables_Table_3"></label></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table
+                                class="table table-bordered table-striped table-vcenter js-dataTable-buttons dataTable no-footer"
+                                id="tblCustomers" role="grid" aria-describedby="DataTables_Table_3_info">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="text-center" style="width: 80px;" tabindex="0"
+                                            aria-controls="DataTables_Table_3" rowspan="1" colspan="1"
+                                            aria-sort="ascending" aria-label="ID: activate to sort column descending">DATA
+                                        </th>
+                                        <th class="" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1"
+                                            colspan="1" aria-label="Name: activate to sort column ascending">Cognome</th>
+                                        <th class="d-none d-sm-table-cell " style="width: 30%;" tabindex="0"
+                                            aria-controls="DataTables_Table_3" rowspan="1" colspan="1"
+                                            aria-label="Email: activate to sort column ascending">Nome</th>
+                                        <th class="d-none d-sm-table-cell " style="width: 15%;" tabindex="0"
+                                            aria-controls="DataTables_Table_3" rowspan="1" colspan="1"
+                                            aria-label="Access: activate to sort column ascending">Ragione sociale</th>
+                                        <th style="width: 15%;" class="" tabindex="0"
+                                            aria-controls="DataTables_Table_3" rowspan="1" colspan="1"
+                                            aria-label="Registered: activate to sort column ascending">Sede</th>
+                                        <th style="width: 15%;" class="" tabindex="0"
+                                            aria-controls="DataTables_Table_3" rowspan="1" colspan="1"
+                                            aria-label="Registered: activate to sort column ascending">Reparto</th>
+                                        <th style="width: 15%;" class="" tabindex="0"
+                                            aria-controls="DataTables_Table_3" rowspan="1" colspan="1"
+                                            aria-label="Registered: activate to sort column ascending">Turno</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for(var i=0; i < rows.length; i++) { %>
+                                        <tr class="odd">
+                                            <td class="text-center fs-sm sorting_1">
+                                                <%= //rows[i].id %>
+                                            </td>
+                                            <td class="fw-semibold fs-sm">
+                                                <a href="be_pages_generic_profile.html">
+                                                    <%= //rows[i].ragionesociale %>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <%= rows[i].email %>
+                                            </td>
+                                            <td>
+
+                                                <%= rows[i].sedeoperativa %>
+                                            </td>
+                                            <td>
+
+                                                <%= rows[i].mansione%>
+                                            </td>
+                                            <td>
+
+                                                <%= //rows[i].recapitotelefonico %>
+                                            </td>
+                                            <td>
+
+                                                <%= //rows[i].referente %>
+                                            </td>
+                                            
+                                        </tr>
+                                        <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-5">
+                            <div class="dataTables_info" id="DataTables_Table_3_info" role="status" aria-live="polite">
+                                Page <strong>1</strong> of <strong>4</strong></div>
+                        </div>
+                        <div class="col-sm-12 col-md-7">
+                            <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_3_paginate">
+                                <ul class="pagination">
+                                    <li class="paginate_button page-item previous disabled"
+                                        id="DataTables_Table_3_previous"><a href="#" aria-controls="DataTables_Table_3"
+                                            data-dt-idx="0" tabindex="0" class="page-link"><i
+                                                class="fa fa-angle-left"></i></a></li>
+                                    <li class="paginate_button page-item active"><a href="#"
+                                            aria-controls="DataTables_Table_3" data-dt-idx="1" tabindex="0"
+                                            class="page-link">1</a></li>
+                                    <li class="paginate_button page-item "><a href="#"
+                                            aria-controls="DataTables_Table_3" data-dt-idx="2" tabindex="0"
+                                            class="page-link">2</a></li>
+                                    <li class="paginate_button page-item "><a href="#"
+                                            aria-controls="DataTables_Table_3" data-dt-idx="3" tabindex="0"
+                                            class="page-link">3</a></li>
+                                    <li class="paginate_button page-item "><a href="#"
+                                            aria-controls="DataTables_Table_3" data-dt-idx="4" tabindex="0"
+                                            class="page-link">4</a></li>
+                                    <li class="paginate_button page-item next" id="DataTables_Table_3_next"><a href="#"
+                                            aria-controls="DataTables_Table_3" data-dt-idx="5" tabindex="0"
+                                            class="page-link"><i class="fa fa-angle-right"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- END Page Content -->
+            <script type="text/javascript"
+                src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+            <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+            <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+            <script type="text/javascript">
+                $("body").on("click", "#btnExport", function () {
+                    html2canvas($('#tblCustomers')[0], {
+                        onrendered: function (canvas) {
+                            var data = canvas.toDataURL();
+                            var docDefinition = {
+                                content: [{
+                                    image: data,
+                                    width: 500
+                                }]
+                            };
+                            pdfMake.createPdf(docDefinition).download("cutomer-details.pdf");
+                        }
+                    });
+                });
+            </script>
+    </main>
+    <!-- END Main Container -->
+
+    <%- include('partials/footer') %>

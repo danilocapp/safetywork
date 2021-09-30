@@ -1,0 +1,239 @@
+<%- include('partials/headerpublic') %>
+
+    <!-- Main Container -->
+    <main id="main-container">
+
+        <!-- Hero -->
+        <div class="bg-image overflow-hidden" style="background-image: url('assets/media/photos/photo3@2x.jpg');">
+            <div class="bg-primary-dark-op">
+                <div class="content content-full">
+                    <div
+                        class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center mt-5 mb-2 text-center text-sm-start">
+                        <div class="flex-grow-1">
+                            <h1 class="fw-semibold text-white mb-0">
+                                <% for(i=0;i<rows.length;i++){ %>
+                                <%= rows[i].ragionesociale %>
+                                <% } %>
+                            </h1>
+                            <h2 class="h4 fw-normal text-white-75 mb-0">Benvenuto <%= name %>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Hero -->
+
+        <!-- Page Content -->
+        <div class="content">
+            <div class="row">
+                <div class="col-6 col-md-3 col-lg-6 col-xl-3">
+                    <a class="block block-rounded block-link-pop border-start border-primary border-4"
+                        href="javascript:void(0)">
+                        <div class="block-content block-content-full">
+                            <div class="fs-sm fw-semibold text-uppercase text-muted">Visitors</div>
+                            <div class="fs-2 fw-normal text-dark">120,580</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 col-lg-6 col-xl-3">
+                    <a class="block block-rounded block-link-pop border-start border-primary border-4"
+                        href="javascript:void(0)">
+                        <div class="block-content block-content-full">
+                            <div class="fs-sm fw-semibold text-uppercase text-muted">Sales</div>
+                            <div class="fs-2 fw-normal text-dark">150</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 col-lg-6 col-xl-3">
+                    <a class="block block-rounded block-link-pop border-start border-primary border-4"
+                        href="javascript:void(0)">
+                        <div class="block-content block-content-full">
+                            <div class="fs-sm fw-semibold text-uppercase text-muted">Earnings</div>
+                            <div class="fs-2 fw-normal text-dark">$3,200</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 col-lg-6 col-xl-3">
+                    <a class="block block-rounded block-link-pop border-start border-primary border-4"
+                        href="javascript:void(0)">
+                        <div class="block-content block-content-full">
+                            <div class="fs-sm fw-semibold text-uppercase text-muted">Avg Sale</div>
+                            <div class="fs-2 fw-normal text-dark">$21</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- Stats -->
+            <div class="row">
+                <!-- <div class="col-6 col-md-3 col-lg-6 col-xl-3">
+                    <div class="block-content block-content-full">
+                        <div class="fs-sm fw-semibold text-uppercase text-muted">Azienda:</div>
+                        <div class="fs-sm fw-normal text-dark">
+                            <select id="developer" name="developer">
+                                <option id="0"> Seleziona l'azienda </option>
+                                <% for(var i=0; i < rows.length; i++) { %>
+                                    <option id=" <%= rows[i].ragionesociale %> ">
+                                        <%= rows[i].ragionesociale %>
+                                    </option>
+                                    <% } %>
+                            </select>
+                        </div>
+
+
+                    </div>
+                </div> -->
+                <!-- <div class="col-6 col-md-4 col-lg-6 col-xl-4">
+                    <a class="block block-rounded block-link-pop border-start border-primary border-4"
+                        href="javascript:void(0)">
+                        <div class="block-content block-content-full">
+                            <div class="fs-sm fw-semibold text-uppercase text-muted">Corsi prenotati</div>
+                            <div class="fs-2 fw-normal text-dark"> <%= //rows.ragionesociale %></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-6 col-xl-4">
+                    <a class="block block-rounded block-link-pop border-start border-primary border-4"
+                        href="javascript:void(0)">
+                        <div class="block-content block-content-full">
+                            <div class="fs-sm fw-semibold text-uppercase text-muted">Corsi svolti</div>
+                            <div class="fs-2 fw-normal text-dark">{numero corsi svolti}</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-6 col-xl-4">
+                    <a class="block block-rounded block-link-pop border-start border-primary border-4"
+                        href="javascript:void(0)">
+                        <div class="block-content block-content-full">
+                            <div class="fs-sm fw-semibold text-uppercase text-muted">Corsi da fare</div>
+                            <div class="fs-2 fw-normal text-dark">{numero corsi da fare}</div>
+                        </div>
+                    </a>
+                </div>
+
+            </div> -->
+                <!-- END Stats -->
+                <!-- Customers and Latest Orders -->
+                <div class="row row-deck">
+                    <!-- Latest Aziende -->
+                    <div class="col-lg-6">
+                        <div class="block block-rounded block-mode-loading-oneui">
+                            <div class="block-header block-header-default">
+                                <h3 class="block-title">Audit comportamentali</h3>
+                                <div class="block-options">
+                                    <button type="button" class="btn-block-option" data-toggle="block-option"
+                                        data-action="state_toggle" data-action-mode="demo">
+                                        <i class="si si-refresh"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="block-content block-content-full">
+                                <table
+                                    class="table table-striped table-hover table-borderless table-vcenter fs-sm mb-0">
+                                    <thead>
+                                        <tr class="text-uppercase">
+                                            <th class="fw-bold" style="width: 80px;">ID</th>
+                                            <th class="d-none d-sm-table-cell fw-bold text-center"
+                                                style="width: 100px;">
+                                                Sede legale</th>
+                                            <th class="fw-bold">Ragione sociale</th>
+                                            <th class="d-none d-sm-table-cell fw-bold text-center">
+                                                Corsi prenotati</th>
+                                            <th class="fw-bold text-center" style="width: 60px;"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% for(var i=0; i < rows.length; i++) { %>
+                                            <tr>
+                                                <td>
+                                                    <span class="fw-semibold">#01368</span>
+                                                </td>
+                                                <td class="fw-semibold">
+                                                    <%= rows[i].sedelegale %>
+                                                </td>
+                                                <td class="fw-semibold">
+                                                    <%= rows[i].ragionesociale %>
+                                                </td>
+                                                <td class="d-none d-sm-table-cell text-center">
+                                                    <a class="link-fx fw-semibold" href="javascript:void(0)">{numero
+                                                        corsi}</a>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a href="javascript:void(0)" data-bs-toggle="tooltip"
+                                                        data-bs-placement="left" title="Modifica">
+                                                        <i class="fa fa-fw fa-pencil-alt"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Aziende Customers -->
+
+                    <!-- Latest Orders -->
+                    <div class="col-lg-6">
+                        <div class="block block-rounded block-mode-loading-oneui">
+                            <div class="block-header block-header-default">
+                                <h3 class="block-title">Corsi disponibili</h3>
+                                <div class="block-options">
+                                    <button type="button" class="btn-block-option" data-toggle="block-option"
+                                        data-action="state_toggle" data-action-mode="demo">
+                                        <i class="si si-refresh"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="block-content block-content-full">
+                                <table
+                                    class="table table-striped table-hover table-borderless table-vcenter fs-sm mb-0">
+                                    <thead>
+                                        <tr class="text-uppercase">
+                                            <th class="fw-bold">Matricola</th>
+                                            <th class="d-none d-sm-table-cell fw-bold">Nome</th>
+                                            <th class="fw-bold">Ore corso</th>
+                                            <th class="d-none d-sm-table-cell fw-bold text-end" style="width: 120px;">
+                                                Sessioni</th>
+                                            <th class="fw-bold text-center" style="width: 60px;"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% for(var i=0; i < rows.length; i++) { %>
+                                            <tr>
+                                                <td class="d-none d-sm-table-cell">
+                                                    <span class="fs-sm text-muted">
+                                                        <%= rows[i].matricola %>
+                                                    </span>
+                                                </td>
+                                                <td class="d-none d-sm-table-cell text-end">
+                                                    <%= rows[i].nome %>
+                                                </td>
+                                                <td class="d-none d-sm-table-cell text-end">
+                                                    <%= rows[i].orecorso %>
+                                                </td>
+                                                <td class="d-none d-sm-table-cell text-end">
+                                                    <%= rows[i].numerosessioni %>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a href="javascript:void(0)" data-bs-toggle="tooltip"
+                                                        data-bs-placement="left" title="Manage">
+                                                        <i class="fa fa-fw fa-pencil-alt"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Latest Orders -->
+                </div>
+                <!-- END Customers and Latest Orders -->
+            </div>
+            <!-- END Page Content -->
+    </main>
+    <!-- END Main Container -->
+
+    <%- include('partials/footer') %>

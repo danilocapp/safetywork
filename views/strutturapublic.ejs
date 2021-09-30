@@ -1,0 +1,65 @@
+<%- include('partials/header') %>
+    <% if(groups===[]){%>
+        <h2>Non ci sono gruppi creati <a href="/gruppi"> Crea gruppo</a>
+            <%}else { %>
+
+                <div style="padding: 10% 0 0;">
+                    <% groups.forEach(function(group){ %>
+                        <div class="block block-rounded">
+                            <div class="block-header block-header-default">
+                                <h3 class="block-title">
+                                    <%= group.titolo %>
+                                </h3>
+                            </div>
+                            <div class="block-content">
+                                <p class="fs-sm text-muted">
+                                    <%= group.sottotitolo %>
+                                </p>
+
+                            </div>
+                            <table class="table table-bordered table-striped table-vcenter">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" style="width: 100px;">
+                                            <i class="far fa-user"></i>
+                                        </th>
+                                        <th>Nome</th>
+                                        <th class="d-none d-md-table-cell" style="width: 30%;">Mansione</th>
+                                        <th>Email</th>
+                                        <th>Sede operativa</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% rows.forEach(function(row){ %>
+                                        <tr>
+                                            <td class="text-center">
+                                                <img class="img-avatar img-avatar48"
+                                                    src="assets/media/avatars/avatar7.jpg" alt="">
+                                            </td>
+                                            <td class="fw-semibold fs-sm">
+                                                <a href="be_pages_generic_profile.html">
+                                                    <%= row.utente %>
+                                                </a>
+                                            </td>
+                                            <td class="d-none d-md-table-cell fs-sm">
+                                                <%= row.mansione %>
+                                            </td>
+                                            <td class="d-none d-md-table-cell fs-sm">
+                                                <%= row.email %>
+                                            </td>
+                                            <td class="d-none d-md-table-cell fs-sm">
+                                                <%= row.sedeoperativa %>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                </tbody>
+                            </table>
+                            <% }) %>
+                        </div>
+                </div>
+                <% } %>
+
+                    </div>
+
+                    <%- include('partials/footer') %>

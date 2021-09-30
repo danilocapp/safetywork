@@ -1,0 +1,73 @@
+<%- include('partials/headerpublic') %>
+      <!-- Main Container -->
+      <main id="main-container">
+
+        <!-- Hero Content -->
+        <div class="bg-primary-dark">
+          <div class="content content-full text-center pt-7 pb-5">
+            <h1 class="h2 text-white mb-2">
+              Scegli il corso più adatto alle tue esigenze!
+            </h1>
+          </div>
+        </div>
+        <!-- END Hero Content -->
+
+        <!-- Page Content -->
+        <div class="content content-boxed">
+          <div class="row row-deck py-4">
+            <% for(var i=0; i < rows.length; i++) { %>
+            <!-- Course -->
+            <div class="col-md-6 col-lg-4 col-xl-3">   
+              <a class="block block-rounded block-link-pop" href="/corsi:<%= rows[i].id %>">
+                <div class="block-content block-content-full text-center bg-city">
+                  <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                  </div>
+                  <div class="fs-sm text-white-75">
+                    Durata : <%= rows[i].orecorso %>  <br>  Sessioni : <%= rows[i].numerosessioni %>
+                  </div>
+                </div>
+                <div class="block-content block-content-full">
+                  <h4 class="h5 mb-1">
+                    <%= rows[i].nome %>
+                  </h4>
+                  <div class="fs-sm text-muted"><%= rows[i].matricola %></div>
+                </div>
+              </a>
+            </div>
+            <% } %>
+            <!-- END Course -->
+          </div>
+        </div>
+        <!-- END Page Content -->
+
+        <!-- Instructors -->
+        <div class="bg-primary-dark py-5">
+          <div class="content content-full content-boxed text-center">
+            <h2 class="fw-semibold text-white mb-2">
+              Learn from the best instructors worldwide.
+            </h2>
+            <h3 class="h4 fw-normal text-white-75">Improve your skills and find the perfect job the right way.</h3>
+            <div class="row items-push mt-5">
+              <div class="col-md-4">
+                <img class="img-avatar img-avatar-thumb" src="assets/media/avatars/avatar2.jpg" alt="">
+                <div class="fs-lg fw-semibold text-white mt-3">Amber Harvey</div>
+                <div class="fs-sm text-white-75">Web Designer</div>
+              </div>
+              <div class="col-md-4">
+                <img class="img-avatar img-avatar-thumb" src="assets/media/avatars/avatar10.jpg" alt="">
+                <div class="fs-lg fw-semibold text-white mt-3">Brian Stevens</div>
+                <div class="fs-sm text-white-75">Web Developer</div>
+              </div>
+              <div class="col-md-4">
+                <img class="img-avatar img-avatar-thumb" src="assets/media/avatars/avatar3.jpg" alt="">
+                <div class="fs-lg fw-semibold text-white mt-3">Megan Fuller</div>
+                <div class="fs-sm text-white-75">Photographer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Instructors -->
+      </main>
+      <!-- END Main Container -->
+<%- include('partials/footer') %>

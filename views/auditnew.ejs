@@ -1,0 +1,600 @@
+<%- include('partials/header') %>
+    <main id="main-container">
+
+        <!-- Page Content -->
+        <div class="hero-static d-flex align-items-center">
+            <div class="content">
+                <div class="row justify-content-center push">
+                    <div class="col-md-8 col-lg-8 col-xl-8">
+                        <!-- Sign Up Block -->
+                        <div class="block block-rounded mb-0">
+                            <div class="block-header block-header-default">
+
+                            </div>
+                            <div class="block-content">
+                                <div class="p-sm-3 px-lg-4 px-xxl-5 py-lg-5">
+                                    <h1 class="h2 mb-1">Federterziaria</h1>
+                                    <p class="fw-medium text-muted">
+                                        Per favore completa i dettagli sotto per generare l'audit!
+                                    </p>
+
+                                    <!-- Sign Up Form -->
+                                    <!-- jQuery Validation (.js-validation-signup class is initialized in js/pages/op_auth_signup.min.js which was auto compiled from _js/pages/op_auth_signup.js) -->
+                                    <!-- For more info and examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                                    <form class="js-validation-signup" action="/auditnew" method="POST">
+                                        <div class="py-3">
+                                            <div class="mb-4">
+                                                <label class="form-label" for="utente">Seleziona utente<span
+                                                        class="text-danger">*</span></label>
+                                                <select class="js-select2 form-select" id="clienti" name="utente"
+                                                    style="width: 100%;" data-placeholder="Scegli utente">
+                                                    <option></option>
+                                                    <!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                                                    <% rows.forEach(function(row){ %>
+                                                        <option value="<%= row.utente %>">
+                                                            <%= row.utente %>
+                                                        </option>
+                                                        <% }) %>
+                                                </select>
+                                            </div>
+                                            <div class="mb-4">
+                                                <label class="form-label" for="sede">Seleziona sede<span
+                                                        class="text-danger">*</span></label>
+                                                <select class="js-select2 form-select" id="sedi" name="sedeoperativa"
+                                                    style="width: 100%;" data-placeholder="Scegli sede">
+                                                    <option></option>
+                                                    <!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                                                    <% groups.forEach(function(group){ %>
+                                                        <option value="<%= group.titolo %>">
+                                                            <%= group.titolo %>
+                                                        </option>
+                                                        <% }) %>
+                                                </select>
+                                            </div>
+                                            <div class="mb-4">
+                                                <input type="date" class="form-control form-control-lg form-control-alt"
+                                                    id="data" name="data" placeholder="Data">
+                                            </div>
+                                            <div class="mb-4">
+                                                <input type="text" class="form-control form-control-lg form-control-alt"
+                                                    id="ora" name="ora" placeholder="Ora">
+                                            </div>
+                                            <div class="mb-4">
+                                                <input type="text" class="form-control form-control-lg form-control-alt"
+                                                    id="orediservizio" name="orediservizio" placeholder="Ore di servizio">
+                                            </div>
+                                            <div class="mb-4">
+                                                <input type="text" class="form-control form-control-lg form-control-alt"
+                                                    id="eta" name="eta" placeholder="Età">
+                                            </div>
+                                            <div class="mb-4">
+                                                <input type="text" class="form-control form-control-lg form-control-alt"
+                                                    id="anzianitalavorativa" name="anzianitalavorativa"
+                                                    placeholder="Anzianità Lavorativa">
+                                            </div>
+                                            <div class="mb-4">
+                                                <input type="text" class="form-control form-control-lg form-control-alt"
+                                                    id="nite" name="note" placeholder="Note">
+                                            </div>
+                                            <div class="mb-4">
+                                                <label class="form-label" for="utente">Seleziona auditor<span
+                                                        class="text-danger">*</span></label>
+                                                <select class="js-select2 form-select" id="auditor" name="auditor"
+                                                    style="width: 100%;" data-placeholder="Scegli utente">
+                                                    <option></option>
+                                                    <!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                                                    <% rows.forEach(function(row){ %>
+                                                        <option value="<%= row.utente %>">
+                                                            <%= row.utente %>
+                                                        </option>
+                                                        <% }) %>
+                                                </select>
+                                            </div>
+                                            <div class="mb-4">
+
+                                                <table rules="all" id="audit00_1_"
+                                                    style="width:100%;border-collapse:collapse;" cellspacing="0"
+                                                    border="1">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="col" align="center">Ottimo</th>
+                                                            <th scope="col" align="center">Buono</th>
+                                                            <th scope="col" align="center">Sufficiente</th>
+                                                            <th scope="col" align="center">Insufficiente</th>
+                                                            <th scope="col">&nbsp;</th>
+                                                            <th scope="col" style="border-color:White;">&nbsp;</th>
+                                                        </tr>
+                                                        <tr
+                                                            style="border-color:Gray;border-width:1px;border-style:Dotted;">
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit02_CheckBox1"
+                                                                        type="checkbox"
+                                                                        name="audit2CheckBox1"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit02_CheckBox2"
+                                                                        type="checkbox"
+                                                                        name="audit2CheckBox2"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit02_CheckBox3"
+                                                                        type="checkbox"
+                                                                        name="audit2CheckBox3"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit02_CheckBox4"
+                                                                        type="checkbox"
+                                                                        name="audit2CheckBox4"></span>
+                                                            </td>
+                                                            <td style="color:Black;">IL LUOGO DI LAVORO E' ORDINATO?
+                                                            </td>
+                                                            <td style="color:White;border-color:White;">148</td>
+                                                        </tr>
+                                                        <tr
+                                                            style="border-color:Gray;border-width:1px;border-style:Dotted;">
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit03_CheckBox1"
+                                                                        type="checkbox"
+                                                                        name="audit3CheckBox1"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit03_CheckBox2"
+                                                                        type="checkbox"
+                                                                        name="audit3CheckBox2"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit03_CheckBox3"
+                                                                        type="checkbox"
+                                                                        name="audit3CheckBox3"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit03_CheckBox4"
+                                                                        type="checkbox"
+                                                                        name="audit3CheckBox4"></span>
+                                                            </td>
+                                                            <td style="color:Black;">IL LUOGO DI LAVORO E' PULITO?</td>
+                                                            <td style="color:White;border-color:White;">149</td>
+                                                        </tr>
+                                                        <tr
+                                                            style="border-color:Gray;border-width:1px;border-style:Dotted;">
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit04_CheckBox1"
+                                                                        type="checkbox"
+                                                                        name="audit4CheckBox1"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit04_CheckBox2"
+                                                                        type="checkbox"
+                                                                        name="audit4CheckBox2"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit04_CheckBox3"
+                                                                        type="checkbox"
+                                                                        name="audit4CheckBox3"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit04_CheckBox4"
+                                                                        type="checkbox"
+                                                                        name="audit4CheckBox4"></span>
+                                                            </td>
+                                                            <td style="color:Black;">SI RISPETTANO LE DISPOSIZIONI DI
+                                                                SICUREZZA?</td>
+                                                            <td style="color:White;border-color:White;">150</td>
+                                                        </tr>
+                                                        <tr
+                                                            style="border-color:Gray;border-width:1px;border-style:Dotted;">
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit05_CheckBox1"
+                                                                        type="checkbox"
+                                                                        name="audit5CheckBox1"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit05_CheckBox2"
+                                                                        type="checkbox"
+                                                                        name="audit5CheckBox2"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit05_CheckBox3"
+                                                                        type="checkbox"
+                                                                        name="audit5CheckBox3"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit05_CheckBox4"
+                                                                        type="checkbox"
+                                                                        name="audit5CheckBox4"></span>
+                                                            </td>
+                                                            <td style="color:Black;">I DPI SONO IMPIEGATI NEL MODO
+                                                                CORRETTO?</td>
+                                                            <td style="color:White;border-color:White;">151</td>
+                                                        </tr>
+                                                        <tr
+                                                            style="border-color:Gray;border-width:1px;border-style:Dotted;">
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit06_CheckBox1"
+                                                                        type="checkbox"
+                                                                        name="audit6CheckBox1"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit06_CheckBox2"
+                                                                        type="checkbox"
+                                                                        name="audit6CheckBox2"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit06_CheckBox3"
+                                                                        type="checkbox"
+                                                                        name="audit6CheckBox3"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit06_CheckBox4"
+                                                                        type="checkbox"
+                                                                        name="audit6CheckBox4"></span>
+                                                            </td>
+                                                            <td style="color:Black;">I DPI SONO COMPLETI?</td>
+                                                            <td style="color:White;border-color:White;">152</td>
+                                                        </tr>
+                                                        <tr
+                                                            style="border-color:Gray;border-width:1px;border-style:Dotted;">
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit07_CheckBox1"
+                                                                        type="checkbox"
+                                                                        name="audit7CheckBox1"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit07_CheckBox2"
+                                                                        type="checkbox"
+                                                                        name="audit7CheckBox2"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit07_CheckBox3"
+                                                                        type="checkbox"
+                                                                        name="audit7CheckBox3"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit07_CheckBox4"
+                                                                        type="checkbox"
+                                                                        name="audit7CheckBox4"></span>
+                                                            </td>
+                                                            <td style="color:Black;">I DPI SONO IN BUONO STATO?</td>
+                                                            <td style="color:White;border-color:White;">153</td>
+                                                        </tr>
+                                                        <tr
+                                                            style="border-color:Gray;border-width:1px;border-style:Dotted;">
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit08_CheckBox1"
+                                                                        type="checkbox"
+                                                                        name="audit8CheckBox1"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit08_CheckBox2"
+                                                                        type="checkbox"
+                                                                        name="audit8CheckBox2"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit08_CheckBox3"
+                                                                        type="checkbox"
+                                                                        name="audit8CheckBox3"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit08_CheckBox4"
+                                                                        type="checkbox"
+                                                                        name="audit8CheckBox4"></span>
+                                                            </td>
+                                                            <td style="color:Black;">LA POSIZIONE IN CUI SI OPERA E'
+                                                                SICURA?</td>
+                                                            <td style="color:White;border-color:White;">154</td>
+                                                        </tr>
+                                                        <tr
+                                                            style="border-color:Gray;border-width:1px;border-style:Dotted;">
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit09_CheckBox1"
+                                                                        type="checkbox"
+                                                                        name="audit9CheckBox1"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit09_CheckBox2"
+                                                                        type="checkbox"
+                                                                        name="audit9CheckBox2"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit09_CheckBox3"
+                                                                        type="checkbox"
+                                                                        name="audit9CheckBox3"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit09_CheckBox4"
+                                                                        type="checkbox"
+                                                                        name="audit9CheckBox4"></span>
+                                                            </td>
+                                                            <td style="color:Black;">LA POSTURA DEL COLLABORATORE E'
+                                                                ERGONOMICAMENTE CORRETTA?</td>
+                                                            <td style="color:White;border-color:White;">155</td>
+                                                        </tr>
+                                                        <tr
+                                                            style="border-color:Gray;border-width:1px;border-style:Dotted;">
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit10_CheckBox1"
+                                                                        type="checkbox"
+                                                                        name="audit10CheckBox1"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit10_CheckBox2"
+                                                                        type="checkbox"
+                                                                        name="audit10CheckBox2"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit10_CheckBox3"
+                                                                        type="checkbox"
+                                                                        name="audit10CheckBox3"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit10_CheckBox4"
+                                                                        type="checkbox"
+                                                                        name="audit10CheckBox4"></span>
+                                                            </td>
+                                                            <td style="color:Black;">LA ATTREZZATURE SONO IMPIEGATENEL
+                                                                MODO CORRETTO?</td>
+                                                            <td style="color:White;border-color:White;">156</td>
+                                                        </tr>
+                                                        <tr
+                                                            style="border-color:Gray;border-width:1px;border-style:Dotted;">
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit11_CheckBox1"
+                                                                        type="checkbox"
+                                                                        name="audit11CheckBox1"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit11_CheckBox2"
+                                                                        type="checkbox"
+                                                                        name="audit11CheckBox2"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit11_CheckBox3"
+                                                                        type="checkbox"
+                                                                        name="audit11CheckBox3"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit11_CheckBox4"
+                                                                        type="checkbox"
+                                                                        name="audit11CheckBox4"></span>
+                                                            </td>
+                                                            <td style="color:Black;">SI RISPETTA IL MODO DI OPERARE
+                                                                INDICATO DURANTE LE ISTRUZIONI?</td>
+                                                            <td style="color:White;border-color:White;">157</td>
+                                                        </tr>
+                                                        <tr
+                                                            style="border-color:Gray;border-width:1px;border-style:Dotted;">
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit12_CheckBox1"
+                                                                        type="checkbox"
+                                                                        name="audit12CheckBox1"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit12_CheckBox2"
+                                                                        type="checkbox"
+                                                                        name="audit12CheckBox2"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit12_CheckBox3"
+                                                                        type="checkbox"
+                                                                        name="audit12CheckBox3"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit12_CheckBox4"
+                                                                        type="checkbox"
+                                                                        name="audit12CheckBox4"></span>
+                                                            </td>
+                                                            <td style="color:Black;">LE ATTREZZATURE DI LAVORO SONO IN
+                                                                BUONO STATO?</td>
+                                                            <td style="color:White;border-color:White;">158</td>
+                                                        </tr>
+                                                        <tr
+                                                            style="border-color:Gray;border-width:1px;border-style:Dotted;">
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit13_CheckBox1"
+                                                                        type="checkbox"
+                                                                        name="audit13CheckBox1"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit13_CheckBox2"
+                                                                        type="checkbox"
+                                                                        name="audit13CheckBox2"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit13_CheckBox3"
+                                                                        type="checkbox"
+                                                                        name="audit13CheckBox3"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit13_CheckBox4"
+                                                                        type="checkbox"
+                                                                        name="audit13CheckBox4"></span>
+                                                            </td>
+                                                            <td style="color:Black;">SUL POSTO DI LAVORO SI TROVANO
+                                                                TUTTE LE ATTREZZATURE DI CUI SI HA BISOGNO PER LAVORARE?
+                                                            </td>
+                                                            <td style="color:White;border-color:White;">159</td>
+                                                        </tr>
+                                                        <tr
+                                                            style="border-color:Gray;border-width:1px;border-style:Dotted;">
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit14_CheckBox1"
+                                                                        type="checkbox"
+                                                                        name="audit14CheckBox1"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit14_CheckBox2"
+                                                                        type="checkbox"
+                                                                        name="audit14CheckBox2"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit14_CheckBox3"
+                                                                        type="checkbox"
+                                                                        name="audit14CheckBox3"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit14_CheckBox4"
+                                                                        type="checkbox"
+                                                                        name="audit14CheckBox4"></span>
+                                                            </td>
+                                                            <td style="color:Black;">IL POSTO DI LAVORO E' ILLUMINATO IN
+                                                                MODO SUFFICIENTE?</td>
+                                                            <td style="color:White;border-color:White;">160</td>
+                                                        </tr>
+                                                        <tr
+                                                            style="border-color:Gray;border-width:1px;border-style:Dotted;">
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit15_CheckBox1"
+                                                                        type="checkbox"
+                                                                        name="audit15CheckBox1"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit15_CheckBox2"
+                                                                        type="checkbox"
+                                                                        name="audit15CheckBox2"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit15_CheckBox3"
+                                                                        type="checkbox"
+                                                                        name="audit15CheckBox3"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit15_CheckBox4"
+                                                                        type="checkbox"
+                                                                        name="audit15CheckBox4"></span>
+                                                            </td>
+                                                            <td style="color:Black;">LE CONDIZIONI CLIMATICHE SODDISFANO
+                                                                I REQUISITI DI SICUREZZA E DI SALUTE?</td>
+                                                            <td style="color:White;border-color:White;">161</td>
+                                                        </tr>
+                                                        <tr
+                                                            style="border-color:Gray;border-width:1px;border-style:Dotted;">
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit16_CheckBox1"
+                                                                        type="checkbox"
+                                                                        name="audit16CheckBox1"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit16_CheckBox2"
+                                                                        type="checkbox"
+                                                                        name="audit16CheckBox2"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit16_CheckBox3"
+                                                                        type="checkbox"
+                                                                        name="audit16CheckBox3"></span>
+                                                            </td>
+                                                            <td align="center">
+                                                                <span style="display:inline-block;width:80px;"><input
+                                                                        id="audit00_audit16_CheckBox4"
+                                                                        type="checkbox"
+                                                                        name="audit16CheckBox4"></span>
+                                                            </td>
+                                                            <td style="color:Black;">LE PROTEZIONI ANTIRUMORE SONO
+                                                                SUFFICIENTI E IDONEE AII COLLABORATORI?</td>
+                                                            <td style="color:White;border-color:White;">162</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="dropdown">
+                          <button type="button" class="btn btn-alt-primary dropdown-toggle"
+                            id="dropdown-default-alt-primary" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Livello Accesso
+                          </button>
+                          <div class="dropdown-menu fs-sm" aria-labelledby="dropdown-default-alt-primary">
+                            <a class="dropdown-item" href="javascript:void(0)">Admin</a>
+                            <a class="dropdown-item" href="javascript:void(0)">Azienda</a>
+                            <a class="dropdown-item" href="javascript:void(0)">Utente</a>
+                          </div>
+                        </div> -->
+
+                                        <!--<div class="mb-4">
+                            <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password-confirm" name="signup-password-confirm" placeholder="Confirm Password">
+                          </div>-->
+                                        <div class="mb-4">
+                                        </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-md-6 col-xl-5">
+                                        <button type="submit" class="btn w-200 btn-alt-success">
+                                            Registra audit
+                                        </button>
+                                    </div>
+                                </div>
+                                </form>
+                                <!-- END Sign Up Form -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Sign Up Block -->
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- END Page Content -->
+    </main>
+
+    <%- include('partials/footer') %>
